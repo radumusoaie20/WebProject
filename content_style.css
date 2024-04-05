@@ -1,0 +1,16 @@
+#content{
+    flex : 1;
+    z-index: -1;
+    margin : 0;
+    padding : 0;
+}
+#content h2{
+        padding : 12px;
+}
+#content > footer{
+    background-color: var(--bgcolor--);
+    padding : 6px;
+    color : var(--headerColor--);
+    text-align: center;
+    box-shadow : 0 0 var(--contourSize--) 0 var(--contourColor--);
+}
