@@ -1,0 +1,49 @@
+#content{
+    flex : 1;
+    z-index: -1;
+    margin : 0;
+    padding : 0;
+}
+#content h2{
+        padding : 12px;
+}
+#content > footer{
+    background-color: var(--bgcolor--);
+    padding : 6px;
+    color : var(--headerColor--);
+    text-align: center;
+    box-shadow : 0 0 var(--contourSize--) 0 var(--contourColor--);
+}
+
+form {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ 
+}
+
+form input[type="search"] {
+  flex-grow: 1.5;
+  width: 100%;
+  height: 50px;
+  border: 3px solid black; /* Adjusted */
+}
+
+form button{
+  border: 3px solid black; /* Adjusted */
+  color: black;
+}
+
+form input[type="search"], form button {
+  background-color: white; 
+  border: 1px solid black; /* Adjusted */
+  cursor: pointer;
+  height:auto;
+}
+
+form button:hover {
+  background-color:#378781 ; 
+}
