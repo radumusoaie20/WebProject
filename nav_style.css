@@ -1,7 +1,7 @@
 :root{
     --bgcolor-- : #219e96;
     --headerColor-- : #f1f1f1;
-    --linkBgHover-- : #378781;
+    --linkBgHover-- : #15302e;
     --navHeight-- : 40px;
     --contourColor-- : rgba(0,0,0,0.2);
     --contourSize-- : 20px;
@@ -40,12 +40,16 @@
     padding : 0;
     margin : 0;
     list-style-type: none;
+    display : flex;
 }
 #top nav ul li{
-    display : inline-block;
     height : var(--navHeight--);
+    transition: all 0.5s;
+    margin : 0;
+    padding : 0;
 }
 #top nav ul li a{
+    margin : 0;
     display : block;
     text-decoration: none;
     color : var(--headerColor--);
