@@ -5,7 +5,7 @@
     --navHeight-- : 40px;
     --contourColor-- : rgba(0,0,0,0.2);
     --contourSize-- : 20px;
-    --paddingSize-- : 12px;
+    --paddingSize-- : 10px;
 }
 #top{
     position: sticky;
