@@ -11,7 +11,7 @@
     overflow-y : auto;
     overflow-x: hidden;
     position : sticky;
-    top : var(--navHeight--);
+    top : calc(var(--navHeight--));
     height: calc(100vh - var(--navHeight--));
     flex-basis : var(--sideBarWidth--);
     box-shadow: 0 0 var(--contourSize--) 0 var(--contourColor--);
