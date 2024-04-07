@@ -2,10 +2,10 @@
     --bgcolor-- : #219e96;
     --headerColor-- : #f1f1f1;
     --linkBgHover-- : #15302e;
-    --navHeight-- : 40px;
-    --contourColor-- : rgba(0,0,0,0.2);
-    --contourSize-- : 20px;
-    --paddingSize-- : 10px;
+    --navHeight-- : 2.5em;
+    --contourColor-- : rgba(0, 0, 0, 0.2);
+    --contourSize-- : 2rem;
+    --paddingSize-- : 0.625rem;
 }
 #top{
     position: sticky;
@@ -33,8 +33,8 @@
     padding : 0;
     margin : 0;
     color: var(--headerColor--);
-    margin-left : 12px;
-    margin-top : calc((var(--paddingSize--) / 2));
+    margin-left : 0.75rem;
+    align-self : center;
 }
 #top > nav > ul{
     padding : 0;

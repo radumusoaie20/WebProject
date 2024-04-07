@@ -5,11 +5,11 @@
     padding : 0;
 }
 #content h2{
-        padding : 12px;
+        padding : 0.75em;
 }
 #content > footer{
     background-color: var(--bgcolor--);
-    padding : 6px;
+    padding : 0.375em;
     color : var(--headerColor--);
     text-align: center;
     box-shadow : 0 0 var(--contourSize--) 0 var(--contourColor--);
