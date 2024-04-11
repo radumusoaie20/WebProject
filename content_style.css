@@ -44,7 +44,17 @@ input[type="checkbox"] + span:before {
 
 /* Style the custom checkbox when checked */
 input[type="checkbox"]:checked + span:before {
-  background:  #219e96; 
+  background:  #219e96;
+
+}
+
+input[type="checkbox"]:checked + span:after {
+  content: "\2713";
+  position: absolute;
+  left: 2px;
+  color: white;
+  font-size: 10.5px;
+  font-weight: bold;
 }
 
   
@@ -55,6 +65,7 @@ form {
   flex-direction: row;
   align-items: center;
   margin-left : 1.5em;
+ 
 }
 
 form input[type="text"] {
@@ -67,22 +78,15 @@ form input[type="text"], form button {
   cursor: pointer;
   height:auto;
   z-index : 3;
+  border-radius: 2px;
 }
 
 form button:hover {
-  background-color:#378781 ; 
+  background-color: var(--bgcolor--); 
+  color: white;
+  border-color: grey;
 }
 
-.checkbox input:checked ~ .checkmark:after {
-  display: block;
- } 
- 
- 
- .checkmark:after {
-  content:'✓';
-  position: absolute;
-  display: none;
- } 
 
 @media (max-width: 600px) {
   #sidebar {

@@ -9,4 +9,19 @@ body{
     #top nav ul li a {
       font-size: 12px;
     }
-  }
+
+    footer{
+        font-size: 10px;
+    }
+
+    #sidebar h2{
+        font-size: 20px ;
+    }
+
+    #sidebar > ul > li >a{
+        font-size: 1em;
+    }
+
+
+
+}
