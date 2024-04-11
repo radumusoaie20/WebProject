@@ -15,11 +15,16 @@ body{
     }
 
     #sidebar h2{
-        font-size: 20px ;
+        font-size:14px;
     }
 
     #sidebar > ul > li >a{
-        font-size: 1em;
+        font-size:14px;
+        top:0;
+    }
+
+    #content{
+        font-size:15px;
     }
 
 
