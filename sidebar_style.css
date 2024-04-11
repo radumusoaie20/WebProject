@@ -16,6 +16,8 @@
     flex-basis : var(--sideBarWidth--);
     box-shadow: 0 0 var(--contourSize--) 0 var(--contourColor--);
     z-index: 1;
+    
+    
 }
 #sidebar > *{
     padding : 0;
@@ -39,4 +41,15 @@
 }
 #sidebar > ul > li:hover a{
     color : var(--headerColor--);
+}
+
+.hidden {
+    visibility: hidden !important;
+    width: 0 !important;
+  }
+
+.show{
+    visibility: visible !important;
+    
+  
 }

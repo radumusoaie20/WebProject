@@ -44,7 +44,7 @@ input[type="checkbox"] + span:before {
 
 /* Style the custom checkbox when checked */
 input[type="checkbox"]:checked + span:before {
-  background:  #378781; 
+  background:  #219e96; 
 }
 
   
@@ -71,4 +71,10 @@ form input[type="text"], form button {
 
 form button:hover {
   background-color:#378781 ; 
+}
+
+@media (max-width: 600px) {
+  #sidebar {
+    display: none;
+  }
 }
