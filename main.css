@@ -4,3 +4,9 @@ body{
     margin: 0;
     overflow-x: hidden;
 }
+
+@media (max-width: 600px) {
+    #top nav ul li a {
+      font-size: 12px;
+    }
+  }

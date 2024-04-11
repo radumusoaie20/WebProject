@@ -38,7 +38,7 @@ input[type="checkbox"] + span:before {
   top: 0;
   width: 10px;
   height: 10px;
-  border: 2px solid grey;
+  border: 1.2px solid grey;
   background: white; /* Change the background color here */
 }
 
@@ -72,6 +72,17 @@ form input[type="text"], form button {
 form button:hover {
   background-color:#378781 ; 
 }
+
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
+ } 
+ 
+ 
+ .checkmark:after {
+  content:'✓';
+  position: absolute;
+  display: none;
+ } 
 
 @media (max-width: 600px) {
   #sidebar {
