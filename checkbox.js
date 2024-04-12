@@ -49,12 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       } else {
         toggleButton.style.display = "none";
-        if (!isSidebarToggled) {
-          sidebar.classList.add('show');
-        }
       }
+      sidebar.classList.add('show');
     }
-  
     window.addEventListener("resize", checkSidebarVisibility);
     checkSidebarVisibility();
   
