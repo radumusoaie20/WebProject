@@ -42,6 +42,30 @@
 #sidebar > ul > li:hover a{
     color : var(--headerColor--);
 }
+#toggle-sidebar {
+    background-color: var(--bgcolor--);
+    height: 3em;
+    border-width: 0;
+    border-color: var(--bgcolor--);
+    display: none;
+    border-radius: 2px;
+    
+  }
+  
+  #toggle-sidebar .bar {
+     width: 25px;
+     height: 2px;
+     background-color: white;
+     margin: 6px 0;
+     transition: 0.4s;
+   }
+
+#toggle-sidebar:hover{
+    background-color: var(--linkBgHover--);
+    border: white solid 1px;
+    cursor: pointer;
+    
+}
 
 .hidden {
     visibility: hidden !important;
