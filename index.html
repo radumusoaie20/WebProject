@@ -6,13 +6,18 @@
     <title>SymptoNet</title>
     <link rel="stylesheet" href="nav_style.css">
     <link rel="stylesheet" href="sidebar_style.css">
-    <link rel="stylesheet" href="content_style.css">
+    <link rel="stylesheet" href= "content_style.css">
     <link rel="stylesheet" href= "main.css">
-    <link rel="stylesheet" href="flex_container.css">
+    <link rel="stylesheet" href= "flex_container.css">
 </head>
 <body>
     <section id="top">
         <nav>
+            <button id="toggle-sidebar">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
             <!--<img src="images/logo.png" alt="SymptoNet Logo">-->
             <h1>SymptoNet</h1> <!-- Logo -->
             <ul>
@@ -23,6 +28,7 @@
     </section>
     <div id="flex-container">
     <section id="sidebar">
+       
         <h2>Information</h2>
         <ul>
             <!-- Use an API to get diseases and store them here-->
@@ -89,8 +95,16 @@
         </ul>
     </section>
     <section id="content">
-        <h2>Search</h2>
-        <ul>
+        <h2>Search your symptoms</h2>
+        <p id = "description">
+            We provide a list of possible health issues that you may have based on your symptoms.
+        </p>
+
+        <form id="form" action="action_page.php">
+            <input type="text" id="query" name="query" placeholder="Search...">
+            <button>Submit</button>
+          </form>
+        <ul id = "symptoms">
             <!-- Use an API to get diseases and store them here-->
             <li><a href="#">Headache</a></li>
             <li><a href="#">Joint pain</a></li>
@@ -154,13 +168,11 @@
             <li><a href="#">FAQs</a></li>
         </ul>
         <!--API that allows you to enter symptoms and retrieve data-->
-        <footer>
-            <p>&copy; 2024 SymptoNet. All rights reserved.</p>
-            <p> Note that this application is not meant for self diagnosis.
-                Always consult a doctor for proper diagnosis and treatment.
-            </p>
-      </footer>
+        <div id="footer"></div>
     </section>
     </div>
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/checkbox.js"></script>
 </body>
 </html>

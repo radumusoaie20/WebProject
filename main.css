@@ -4,3 +4,29 @@ body{
     margin: 0;
     overflow-x: hidden;
 }
+
+@media (max-width: 600px) {
+    #top nav ul li a {
+      font-size: 12px;
+    }
+
+    footer{
+        font-size: 10px;
+    }
+
+    #sidebar h2{
+        font-size:14px;
+    }
+
+    #sidebar > ul > li >a{
+        font-size:14px;
+        top:0;
+    }
+
+    #content{
+        font-size:14px;
+    }
+
+
+
+}
