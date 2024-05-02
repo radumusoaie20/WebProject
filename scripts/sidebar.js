@@ -1,7 +1,20 @@
+const nav = document.querySelector('#top');
+let isSidebarToggled = false;  
+let sidebar = null;
+let toggleButton = null;
 document.addEventListener("DOMContentLoaded", function() {
-    const sidebar = document.getElementById("sidebar");
-    const toggleButton = document.getElementById("toggle-sidebar");
+   fetch('./components/navbar.html')
+   .then(response=>{
+    if(response.ok) return response.text();
+    throw new Error('Request failed!');  
+    })
+   .then(data=>{
+    nav.innerHTML = data;
+   })
+   .then(()=>{
   
+    toggleButton = nav.querySelector('#toggle-sidebar');
+    sidebar = document.querySelector('#sidebar');
     toggleButton.addEventListener("click", function() {
       if (sidebar.style.display === "none") {
         sidebar.style.display = "block";
@@ -9,28 +22,23 @@ document.addEventListener("DOMContentLoaded", function() {
         sidebar.style.display = "none";
       }
     });
-  });
-  document.addEventListener("DOMContentLoaded", function() {
-    const sidebar = document.getElementById("sidebar");
-    const toggleButton = document.getElementById("toggle-sidebar");
-    let isSidebarToggled = false;
-  
-    function checkSidebarVisibility() {
-      if (window.innerWidth <= 600) {
-        toggleButton.style.display = "block";
-        if (!isSidebarToggled) {
-          sidebar.classList.add('hidden');
-        }
-      } else {
-        toggleButton.style.display = "none";
-      }
-      sidebar.classList.add('show');
-    }
     window.addEventListener("resize", checkSidebarVisibility);
-    checkSidebarVisibility();
-  
     toggleButton.addEventListener("click", function() {
       sidebar.classList.toggle('hidden');
       isSidebarToggled = !isSidebarToggled;
     });
-  });
+    checkSidebarVisibility();
+  })
+  .catch(error=>{console.log(error);});
+});
+function checkSidebarVisibility() {
+  if (window.innerWidth <= 600) {
+    toggleButton.style.display = "block";
+    if (!isSidebarToggled) {
+      sidebar.classList.add('hidden');
+    }
+  } else {
+    toggleButton.style.display = "none";
+  }
+  sidebar.classList.add('show');
+}

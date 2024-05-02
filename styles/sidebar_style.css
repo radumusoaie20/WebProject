@@ -1,8 +1,8 @@
 :root{
     --sideColor-- : #e7f2f1;
+    --itemColor-- : #9faaa8;
     --sideBarWidth-- : 200px;
 }
-
 #sidebar{
     display : inline-block;
     padding : 0;
@@ -16,7 +16,7 @@
     flex-basis : var(--sideBarWidth--);
     box-shadow: 0 0 var(--contourSize--) 0 var(--contourColor--);
     z-index: 1;
-    
+    flex-shrink: 0;
     
 }
 #sidebar > *{
@@ -30,11 +30,18 @@
 }
 #sidebar > ul{
     list-style-type: none;
+    padding : 2px;
 }
 #sidebar > ul > li > a{
     text-decoration: none;
     color : black;
-    margin-left : 17px;
+}
+#sidebar > ul > li{
+    text-align: center;
+    padding : 5px;
+    margin-bottom : 6px;
+    border : 1px solid var(--itemColor--);
+    border-radius : 10px;
 }
 #sidebar > ul > li:hover{
     background-color: var(--bgcolor--);
@@ -64,7 +71,6 @@
     background-color: var(--linkBgHover--);
     border: white solid 1px;
     cursor: pointer;
-    
 }
 
 .hidden {

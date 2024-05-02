@@ -21,15 +21,13 @@
     text-align: center;
     box-shadow : 0 0 var(--contourSize--) 0 var(--contourColor--);
 }
-
-  #symptoms > li {
+  #symptoms > section > ul > li {
     list-style-type: none;
+    margin : 0.5em;
   }
-
   #form{
     margin-top: 1rem;
   }
-
 input[type="checkbox"] {
   display: none;
 }
@@ -54,7 +52,6 @@ input[type="checkbox"] + span:before {
 /* Style the custom checkbox when checked */
 input[type="checkbox"]:checked + span:before {
   background:  #219e96;
-
 }
 
 input[type="checkbox"]:checked + span:after {
