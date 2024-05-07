@@ -2,21 +2,7 @@ const placeAt = document.querySelector('#symptoms');
 
 //Retrieving symptoms from JSON file
 
-let categories=[
-    "General",
-    "Cardiovascular",
-    "Ear, Nose and Throat",
-    "Gastrointestinal",
-    "Hair",
-    "Skin",
-    "Neurological",
-    "Gyanecological",
-    "Ocular",
-    "Psychiatric",
-    "Pulmonary",
-    "Rheumatologic",
-    "Urologic"
-];
+let categories=[];
 const symptoms = [];
 
 function getAll(){
@@ -27,6 +13,7 @@ function getAll(){
     })
     .then(data=>{
         const obj = JSON.parse(data);
+        categories = Object.keys(obj);
         for(const category of categories){
             for(const symptom of obj[category]){
                 const checkbox = document.createElement('input');

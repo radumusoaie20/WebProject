@@ -1,20 +1,37 @@
 // Get the diseases from the URL
-console.log('diseases');
 let urlParams = new URLSearchParams(window.location.search);
-let diseases = urlParams.get('diseases').split(',');
+let symptoms = (urlParams.get('search')).split(',');
+console.log(symptoms);
 
-// Get the results div
-let resultsDiv = document.getElementById('results');
+//on our database, we will have 
+//an entry with the name symptoms
 
-// Print the diseases
-for (let disease of diseases) {
-    // Replace %20 with spaces
-    disease = disease.replace(/%20/g, ' ');
+//it will look like this
 
-    // Create a new paragraph for each disease
-    let p = document.createElement('p');
-    p.textContent = disease;
-
-    // Add the paragraph to the results div
-    resultsDiv.appendChild(p);
-}
+/*
+symptoms
+    ->"anxiety" : [LIST OF DISEASES],
+      "anorexia" : [LIST OF DISEASES] 
+*/
+const baseURL = "https://webproject-4839d-default-rtdb.europe-west1.firebasedatabase.app";
+let dict = [];
+document.addEventListener('DOMContentLoaded', function(){
+    fetch(`${baseURL}/symptoms`)
+    .then(response=>response.json())
+    .then(data=>{
+        for(const sym of symptoms){
+            for(const disease of data[sym]){
+                if(disease in dict){
+                    dict[disease]++;
+                }else{
+                    dict[disease] = 1;
+                }
+            }
+        }
+        //print diseases
+        let keys = Object.keys(dict);
+        for(const key of keys){
+            console.log(key + " : " + dict[key]);
+        }
+    })
+});

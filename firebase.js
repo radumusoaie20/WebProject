@@ -42,44 +42,22 @@ export {writeDiseaseSymptoms};
 const dbRef = ref(db, 'diseases/name_of_disease/symptoms');*/
 //ANDREEA
 
-
 // Assuming you have a form with checkboxes for symptoms
 
 
 // Get the form and the input field
 let form = document.getElementById('form');
-let searchInput = document.getElementById('search');
+let entered_syptoms = "";
 
 form.addEventListener('submit', (event) => {
     // Prevent the form from being submitted
     event.preventDefault();
-
-    // Get the symptoms from the input field
-    let userSymptoms = searchInput.value.split(',').map(symptom => symptom.trim());
-
-    const db = getDatabase();
-    const dbRef = ref(db, 'diseases');
-
-    onValue(dbRef, (snapshot) => {
-        const diseases = snapshot.val();
-        let matchingDiseases = [];
-
-        for (let diseaseName in diseases) {
-            const symptoms = diseases[diseaseName].symptoms;
-
-            // Check if the disease's symptoms match the user's symptoms
-            for (let symptom of userSymptoms) {
-                if (symptoms[symptom]) {
-                    matchingDiseases.push(diseaseName);
-                    break;
-                }
-            }
-        }
-
-        // Redirect the user to another page and pass the matching diseases
-        window.location.href = `results.html?diseases=${matchingDiseases.join(',')}`;
-    }, (error) => {
-        console.error("Error: ", error);
-    });
+    const checboxes = document.querySelectorAll('input[type=checkbox]');
+    for(const checkbox of checboxes){
+        if(checkbox.checked)
+          entered_syptoms += checkbox.value + ",";
+    }
+    entered_syptoms = entered_syptoms.substring(0, entered_syptoms.length - 1);
+    console.log(entered_syptoms);
+    window.location.href = `results.html?search=${entered_syptoms}`;
 });
-//NOTE : WHEN RETRIEVING THE DISEASES, KEEP IN MIND THAT SPACES ARE REPLACED WITH %20 IN THE URL
