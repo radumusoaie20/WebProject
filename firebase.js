@@ -1,6 +1,7 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
+    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
+    //import { getDatabase, ref, onValue } from "firebase/database";
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -41,4 +42,44 @@ export {writeDiseaseSymptoms};
 const dbRef = ref(db, 'diseases/name_of_disease/symptoms');*/
 //ANDREEA
 
+
+// Assuming you have a form with checkboxes for symptoms
+
+
+// Get the form and the input field
+let form = document.getElementById('form');
+let searchInput = document.getElementById('search');
+
+form.addEventListener('submit', (event) => {
+    // Prevent the form from being submitted
+    event.preventDefault();
+
+    // Get the symptoms from the input field
+    let userSymptoms = searchInput.value.split(',').map(symptom => symptom.trim());
+
+    const db = getDatabase();
+    const dbRef = ref(db, 'diseases');
+
+    onValue(dbRef, (snapshot) => {
+        const diseases = snapshot.val();
+        let matchingDiseases = [];
+
+        for (let diseaseName in diseases) {
+            const symptoms = diseases[diseaseName].symptoms;
+
+            // Check if the disease's symptoms match the user's symptoms
+            for (let symptom of userSymptoms) {
+                if (symptoms[symptom]) {
+                    matchingDiseases.push(diseaseName);
+                    break;
+                }
+            }
+        }
+
+        // Redirect the user to another page and pass the matching diseases
+        window.location.href = `results.html?diseases=${matchingDiseases.join(',')}`;
+    }, (error) => {
+        console.error("Error: ", error);
+    });
+});
 //NOTE : WHEN RETRIEVING THE DISEASES, KEEP IN MIND THAT SPACES ARE REPLACED WITH %20 IN THE URL
