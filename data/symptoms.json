@@ -10,12 +10,32 @@
     "fatigue",
     "hypothermia",
     "jaundice",
+    "muscle aches",
     "muscle weakness",
     "pyrexia",
     "sweats",
     "swelling",
     "swollen or painful lymph nodes",
-    "weight gain"
+    "weight gain",
+    "polydipsia",
+    "polyphagia",
+    "facial pain and pressure",
+    "fever",
+    "feeling unwell",
+    "pain or tenderness",
+    "pus drainage",
+    "warmth",
+    "loss of appetite",
+    "dehydration",
+    "joint pain",
+    "joint stiffness",
+    "crepitus",
+    "joint instability",
+    "osteophyte",
+    "numbness",
+    "hand pain",
+    "hand stiffness",
+    "electric shock-like sensations"
    ],
    "Cardiovascular" :
    ["arrithmyia",
@@ -35,7 +55,8 @@
     "sore throat",
     "toothache",
     "tinnitus",
-    "trismus"
+    "trismus",
+    "post nasal drip"
     ],
     "Gastrointestinal" :
     ["abdominal pain",
@@ -55,7 +76,9 @@
     "pyrosis",
     "rectal tenesmus",
     "steatorrhea",
-    "vomiting"
+    "vomiting",
+    "regurgitation",
+    "acid reflux"
     ],
     "Hair" : [
         "alopecia",
@@ -72,7 +95,8 @@
         "Janeway lesions and Osler's node",
         "laceration",
         "rash",
-        "urticaria"
+        "urticaria",
+        "redness"
     ],
     "Neurological" : 
     [
@@ -102,7 +126,9 @@
         "paralysis",
         "paresthesia",
         "prospagnosia",
-        "somonolence"
+        "somonolence",
+        "seizure",
+        "automatism"
     ],
     "Gyanecological" : 
     [
@@ -147,7 +173,10 @@
         "dyspnea",
         "hemoptysis",
         "pleuritic chest pain",
-        "suputum production"
+        "sputum production",
+        "wheezing",
+        "sneezing",
+        "snoring"
     ],
     "Rheumatologic" :
     [
@@ -167,6 +196,10 @@
         "uretrhal discharge",
         "urinary frequency",
         "urinary incontinence",
-        "urinary retention"
+        "urinary retention",
+        "cloudy urine",
+        "dark urine",
+        "pale stools",
+        "oliguria"
     ]
 }

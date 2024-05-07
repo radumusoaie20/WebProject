@@ -1,6 +1,6 @@
 const base_url = "https://clinicaltables.nlm.nih.gov/api/conditions/v3/search";
-const list = document.querySelector('#sidebar > ul');
-const count = 100;
+const dropdown = document.querySelector('#diseases');
+const count = 500;
 
 //Function to load conditions
 function loadConditions() {
@@ -15,10 +15,10 @@ function loadConditions() {
         for(const item of data[3]){
             const name = item[1].split(',')[1];
             if(name === undefined) continue;
-            const link = item[1].split(',')[0];
-            const condition = document.createElement('li');
-            condition.innerHTML = `<a href="${link}" target="_blank">${name}</a>`;
-            list.appendChild(condition);
+            const option = document.createElement('option');
+            option.value = name;
+            option.innerHTML = name;
+            dropdown.appendChild(option);
         }
     })
     .catch(error=>{console.log(error);});

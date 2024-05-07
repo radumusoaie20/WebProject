@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+        <label for="diseases">Disease:</label>
+        <select id="diseases">
+            <!--Load diseases-->
+        </select>
+        <br>
+        <input type="text" id="filter" placeholder="Filter...">
+        <button id="submit">Submit</button>
+        <br>
+        <br>
+        <div id="symptoms">
+
+        </div>
+        <!--Load symptoms-->
+    <script src="scripts/admin/getConditions.js"></script>
+    <script src="scripts/admin/getAllSymptoms.js" type="module"></script>
+    <script src="scripts/admin/sendData.js" type="module"></script>
+</body>
+</html>

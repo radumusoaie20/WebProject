@@ -1,4 +1,5 @@
 const placeAt = document.querySelector('#symptoms');
+const user_query = document.querySelector('#search');
 
 let categories=[
     "General",
@@ -16,7 +17,28 @@ let categories=[
     "Urologic"
 ];
 
-document.addEventListener('DOMContentLoaded', function() {
+function updateQuery(){
+    const sections = document.querySelectorAll('#symptoms > section');
+    let count = 0;
+    for(const section of sections){
+        const checkboxes = section.querySelectorAll('input[type="checkbox"]');
+        for(const checkbox of checkboxes){
+            if(checkbox.value.includes(user_query.value.toLowerCase())){
+                checkbox.parentNode.style.display = '';
+            }
+            else{ checkbox.parentNode.style.display = 'none';
+                count++;   
+            }
+        }
+        if(count == section.querySelector('ul').childElementCount){
+             section.style.display = 'none';
+        }
+        else section.style.display = '';
+        count = 0;
+    }
+}
+
+function retrieveSymptoms(place) {
     fetch('./data/symptoms.json')
     .then(response=>{
         if(response.ok) return response.text();
@@ -32,18 +54,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
                 checkbox.value = symptom;
-                const span = document.createElement('span');
+                checkbox.name = symptom;
+                checkbox.id = symptom;
                 const li = document.createElement('li');
-                li.innerHTML = symptom;
-                li.prepend(checkbox);
-                checkbox.parentNode.insertBefore(span, checkbox.nextSibling);
-                span.addEventListener('click', function(){
-                    checkbox.checked = !checkbox.checked;
-                });
+                li.innerHTML = 
+                `${checkbox.outerHTML}
+                <label for="${symptom}">${symptom}</label>`;
                 ul.appendChild(li);
             }
             section.appendChild(ul);
-            placeAt.appendChild(section);
+            place.appendChild(section);
         }
     })
-});
+    .then(()=>{user_query.addEventListener('keyup', updateQuery);})
+};
+
+document.addEventListener('DOMContentLoaded', ()=>{retrieveSymptoms(placeAt);});
+
+export { retrieveSymptoms };

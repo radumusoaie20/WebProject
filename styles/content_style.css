@@ -21,64 +21,28 @@
     text-align: center;
     box-shadow : 0 0 var(--contourSize--) 0 var(--contourColor--);
 }
-  #symptoms > section > ul > li {
-    list-style-type: none;
-    margin : 0.5em;
-  }
-  #form{
-    margin-top: 1rem;
-  }
-input[type="checkbox"] {
-  display: none;
+#symptoms > section > ul > li {
+  list-style-type: none;
+  margin : 0.5em;
 }
-
-input[type="checkbox"] + span {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
+#form{
+  margin-top: 1rem;
 }
-
-input[type="checkbox"] + span:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 10px;
-  height: 10px;
-  border: 1.2px solid grey;
-  background: white; /* Change the background color here */
-}
-
-/* Style the custom checkbox when checked */
-input[type="checkbox"]:checked + span:before {
-  background:  #219e96;
-}
-
-input[type="checkbox"]:checked + span:after {
-  content: "\2713";
-  position: absolute;
-  left: 2px;
-  color: white;
-  font-size: 10.5px;
-  font-weight: bold;
-}
-
-  
-
 form {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-left : 1.5em;
- 
 }
-
+input[type="checkbox"]
+{
+  accent-color: var(--bgcolor--);
+}
 form input[type="text"] {
   flex-basis: 50%;
   margin-right : 1em;
 }
-
 form input[type="text"], form button {
   border: 1px solid black; 
   cursor: pointer;
@@ -92,8 +56,6 @@ form button:hover {
   color: white;
   border-color: grey;
 }
-
-
 @media (max-width: 600px) {
   #sidebar {
     display: none;
