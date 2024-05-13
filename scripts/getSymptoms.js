@@ -41,7 +41,7 @@ function retrieveSymptoms(place) {
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
                 checkbox.value = symptom;
-                checkbox.name = symptom;
+                checkbox.name = "symptoms[]";
                 checkbox.id = symptom;
                 const li = document.createElement('li');
                 li.innerHTML = 

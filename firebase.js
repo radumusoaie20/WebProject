@@ -1,6 +1,6 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
+    import { getDatabase, ref, set} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
     //import { getDatabase, ref, onValue } from "firebase/database";
 
     // TODO: Add SDKs for Firebase products that you want to use
@@ -45,19 +45,4 @@ const dbRef = ref(db, 'diseases/name_of_disease/symptoms');*/
 // Assuming you have a form with checkboxes for symptoms
 
 
-// Get the form and the input field
-let form = document.getElementById('form');
-let entered_syptoms = "";
-
-form.addEventListener('submit', (event) => {
-    // Prevent the form from being submitted
-    event.preventDefault();
-    const checboxes = document.querySelectorAll('input[type=checkbox]');
-    for(const checkbox of checboxes){
-        if(checkbox.checked)
-          entered_syptoms += checkbox.value + ",";
-    }
-    entered_syptoms = entered_syptoms.substring(0, entered_syptoms.length - 1);
-    console.log(entered_syptoms);
-    window.location.href = `results.html?search=${entered_syptoms}`;
-});
+  
