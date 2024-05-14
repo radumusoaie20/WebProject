@@ -25,14 +25,16 @@
         <p id = "description">
             We provide a list of possible health issues that you may have based on your symptoms.
         </p>
-
-        <form id="form" action="action_page.php">
-            <input type="text" id="search" name="search" placeholder="Search...">
-            <button>Submit</button>
+        <form id="form" action="results.html">
+            <div id="form_filter">
+                <input type="text" id="search" name="search" placeholder="Search...">
+                <button id = "btn">Submit</button>
+            </div>
+            <br>
+            <div id = "symptoms">
+                <!-- fetch from server symptoms.json file-->
+            </div>
           </form>
-        <div id = "symptoms">
-            <!-- fetch from server symptoms.json file-->
-        </div>
         <!--API that allows you to enter symptoms and retrieve data-->
         <div id="footer"></div>
     </section>
@@ -42,5 +44,6 @@
     <script src="scripts/loadConditions.js"></script>
     <script src="scripts/getSymptoms.js" type="module"></script>
     <script src="./firebase.js" type="module"></script>
+    <script src="scripts/fetchResult.js" type="module"></script>
 </body>
 </html>
