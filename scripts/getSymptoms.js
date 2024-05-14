@@ -1,21 +1,7 @@
 const placeAt = document.querySelector('#symptoms');
 const user_query = document.querySelector('#search');
 
-let categories=[
-    "General",
-    "Cardiovascular",
-    "Ear, Nose and Throat",
-    "Gastrointestinal",
-    "Hair",
-    "Skin",
-    "Neurological",
-    "Gyanecological",
-    "Ocular",
-    "Psychiatric",
-    "Pulmonary",
-    "Rheumatologic",
-    "Urologic"
-];
+let categories = [];
 
 function updateQuery(){
     const sections = document.querySelectorAll('#symptoms > section');
@@ -46,6 +32,7 @@ function retrieveSymptoms(place) {
     })
     .then(data=>{
         const obj = JSON.parse(data);
+        categories = Object.keys(obj);
         for(const category of categories){
             const section = document.createElement('section');
             section.innerHTML = `<h2>${category}</h2>`;

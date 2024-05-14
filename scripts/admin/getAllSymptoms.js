@@ -2,21 +2,7 @@ const placeAt = document.querySelector('#symptoms');
 
 //Retrieving symptoms from JSON file
 
-let categories=[
-    "General",
-    "Cardiovascular",
-    "Ear, Nose and Throat",
-    "Gastrointestinal",
-    "Hair",
-    "Skin",
-    "Neurological",
-    "Gyanecological",
-    "Ocular",
-    "Psychiatric",
-    "Pulmonary",
-    "Rheumatologic",
-    "Urologic"
-];
+let categories=[];
 const symptoms = [];
 
 function getAll(){
@@ -27,6 +13,7 @@ function getAll(){
     })
     .then(data=>{
         const obj = JSON.parse(data);
+        categories = Object.keys(obj);
         for(const category of categories){
             for(const symptom of obj[category]){
                 const checkbox = document.createElement('input');
@@ -50,7 +37,7 @@ const filter = document.querySelector('#filter');
 
 filter.addEventListener('keyup', function(){
     const value = filter.value.toLowerCase();
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = placeAt.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(function(checkbox){
         if(checkbox.value.toLowerCase().indexOf(value) > -1){
             checkbox.style.display = '';
@@ -62,4 +49,19 @@ filter.addEventListener('keyup', function(){
             checkbox.nextElementSibling.nextElementSibling.style.display = 'none';
         }
     });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    const count = document.querySelector('#count');
+    const url = "https://webproject-4839d-default-rtdb.europe-west1.firebasedatabase.app/diseases.json";
+    fetch(url)
+    .then(response=>{
+        if(response.ok) return response.json();
+        throw new Error('Request failed!');
+    }
+    ).then(data=>{
+        count.innerHTML = "Number of total diseases : " + Object.keys(data).length;
+    })
 });

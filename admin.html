@@ -6,21 +6,29 @@
     <title>Admin</title>
 </head>
 <body>
+        <p id="count"> Count : </p>
         <label for="diseases">Disease:</label>
         <select id="diseases">
             <!--Load diseases-->
         </select>
         <br>
+        <input type="text" id="newDisease" placeholder="Disease name...">
+        <br>
+        <label for="diseaseByText">Use text input for disease name</label>
+        <input type="checkbox" id="diseaseByText" name="diseaseByText">
+        <br>
         <input type="text" id="filter" placeholder="Filter...">
+        <br><br>
+        <button id="update">Update all symptoms</button>
         <button id="submit">Submit</button>
         <br>
         <br>
         <div id="symptoms">
-
         </div>
         <!--Load symptoms-->
     <script src="scripts/admin/getConditions.js"></script>
     <script src="scripts/admin/getAllSymptoms.js" type="module"></script>
     <script src="scripts/admin/sendData.js" type="module"></script>
+    <script src="scripts/admin/updateAll.js" type="module"></script>
 </body>
 </html>

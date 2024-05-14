@@ -1,6 +1,6 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
+    import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,18 +27,3 @@ function writeDiseaseSymptoms(disease_name, symptoms){
   })
 }
 export {writeDiseaseSymptoms};
-
-//CODE THAT HANDLES writing to database
-//TO BE DONE AN ADMIN PAGE - RADU
-
-//CODE THAT HANDLES reading from database
-//GETS THE SYMPTOMS ENTERED BY THE USER
-//MAKES A "DICTIONARY" OF DISEASES AND COUNTS THE NUMBER OF SYMPTOMS MATCHING
-//eg:
-//{"nausea", "abdominal pain", "vomiting"} -> {"Diabetes": 2, "Covid-19": 1}
-//In order to access a disease symptom, use the following code:
-/*const db = getDatabase();
-const dbRef = ref(db, 'diseases/name_of_disease/symptoms');*/
-//ANDREEA
-
-//NOTE : WHEN RETRIEVING THE DISEASES, KEEP IN MIND THAT SPACES ARE REPLACED WITH %20 IN THE URL
