@@ -2,7 +2,7 @@ import { getDatabase, ref, get} from "https://www.gstatic.com/firebasejs/10.11.1
 // Get the diseases from the URL
 let urlParams = new URLSearchParams(window.location.search);
 let symptoms = (urlParams.get('symptoms')).split(',');
-
+const results = document.querySelector('#results');
 //on our database, we will have 
 //an entry with the name symptoms
 
@@ -29,8 +29,31 @@ document.addEventListener('DOMContentLoaded', function(){
         }
             //sort the array
             let sorted_byValue = Object.keys(diseases).map((key)=>[key, diseases[key]]).sort((a,b)=>b[1]-a[1]);
-            console.log(sorted_byValue);
             //sorted_byValue has the diseases sorted by the number of symptoms descending
-            //Continue with the code from here(otherwise you will need to take into account the asynchronous nature of the get function)
+            //Let's add them to the DOM
+            console.log(sorted_byValue);
+            for(let i = 0; i < sorted_byValue.length; i++){
+                const div = document.createElement('div');
+                div.classList.add('results');
+                const name = document.createElement('a');
+                name.target = "_blank";
+                name.innerHTML = sorted_byValue[i][0];
+                const symptomChecked = document.createElement('p');
+                symptomChecked.innerHTML = `Symptoms : ${sorted_byValue[i][1]}`;
+                symptomChecked.id = "sym";
+                div.appendChild(name);
+                div.appendChild(symptomChecked);
+                results.appendChild(div);
+            }
+            for(let i = 0; i < sorted_byValue.length; i++){
+                const name = sorted_byValue[i][0]; //get name of the disease
+                const newRef = ref(db, `diseases/${name}`);
+                get(newRef).then((snapshot)=>{
+                    const data = snapshot.val();
+                    console.log(data);
+                    results.children.item(i).querySelector('a').href = `${data.link}`;
+                    results.children.item(i).querySelector('#sym').innerHTML += `/${data.symptoms.length}`;
+                })
+            }
         });
 });

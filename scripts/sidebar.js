@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
     nav.innerHTML = data;
    })
    .then(()=>{
-  
     toggleButton = nav.querySelector('#toggle-sidebar');
     sidebar = document.querySelector('#sidebar');
     toggleButton.addEventListener("click", function() {

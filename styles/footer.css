@@ -1,0 +1,7 @@
+footer{
+    background-color: var(--bgcolor--);
+    padding : 6px;
+    color : var(--headerColor--);
+    text-align: center;
+    box-shadow : 0 0 var(--contourSize--) 0 var(--contourColor--);
+}

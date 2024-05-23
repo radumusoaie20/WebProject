@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/nav_style.css">
+    <link rel="stylesheet" href="styles/sidebar_style.css">
+    <link rel="stylesheet" href= "styles/content_style.css">
+    <link rel="stylesheet" href= "styles/main.css">
+    <link rel="stylesheet" href= "styles/flex_container.css">
+    <link rel="stylesheet" href= "styles/footer.css">
+    <link rel="stylesheet" href="styles/results.css">
     <title>SymptoNet</title>
 </head>
 <body>
-    <div id="results"></div>
+    <section id="top">
+    </section>
+    <div id="flex-container">
+    <section id="sidebar">  
+        <h2>Information</h2>
+        <ul>
+            <!-- Use an API to get diseases and store them here-->
+        </ul>
+    </section>
+    <section id="content">
+            <h2>Your Results</h2>
+            <p>Do note that the results are almost never 100% accurate. Always consult a doctor for screening.</p>
+            <p>The results are ordered by the number of symptoms that match with the disease.</p>
+           <div id="results"></div>
+           <div id="footer"></div>
+    </section>
+    </div>
     <script src="./firebase.js" type="module"></script>
     <script src="./scripts/results.js" type="module"></script>
+    <script src="scripts/sidebar.js" type="module"></script>
+    <script src="./scripts/loadConditions.js" type="module"></script>
+    <script src="./scripts/main.js" type="module"></script>
 </body>
 </html>
