@@ -1,11 +1,7 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-<<<<<<< HEAD
     import { getDatabase, ref, set} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
     //import { getDatabase, ref, onValue } from "firebase/database";
-=======
-    import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
->>>>>>> fa77d9a7043772f014a4013521f8038587eea16c
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,7 +27,6 @@ function writeDiseaseSymptoms(disease_name, symptoms){
       "symptoms" : symptoms
   })
 }
-<<<<<<< HEAD
 export {writeDiseaseSymptoms};
 
 //CODE THAT HANDLES writing to database
@@ -51,6 +46,3 @@ const dbRef = ref(db, 'diseases/name_of_disease/symptoms');*/
 
 
   
-=======
-export {writeDiseaseSymptoms};
->>>>>>> fa77d9a7043772f014a4013521f8038587eea16c
