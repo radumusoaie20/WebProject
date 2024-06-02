@@ -1,0 +1,11 @@
+#content > *{
+    margin : 1.5em;
+}
+#content > p{
+    margin-left : 3em;
+}
+.results{
+    border : 2px solid black;
+    margin : 2rem;
+    padding : 1.2em;
+}

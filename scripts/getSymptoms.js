@@ -1,7 +1,11 @@
 const placeAt = document.querySelector('#symptoms');
 const user_query = document.querySelector('#search');
 
+<<<<<<< HEAD
 let categories=[];
+=======
+let categories = [];
+>>>>>>> fa77d9a7043772f014a4013521f8038587eea16c
 
 function updateQuery(){
     const sections = document.querySelectorAll('#symptoms > section');
