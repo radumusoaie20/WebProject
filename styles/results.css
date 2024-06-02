@@ -5,7 +5,38 @@
     margin-left : 3em;
 }
 .results{
-    border : 2px solid black;
+    border : 3px solid #378781;
+    border-radius: 10px;
     margin : 2rem;
     padding : 1.2em;
+    
+}
+
+.results:hover {
+    background-color: #378781; 
+    color: white;
+}
+
+.results:hover a {
+    color: white !important;
+}
+
+.results a {
+    text-decoration: none;
+}
+
+.results a:hover {
+    text-decoration: underline;
+}
+
+.results a:visited {
+    color:  #378781;
+}
+
+.results a:visited:hover {
+    color: white;
+}
+
+.results a:link {
+    color: black;
 }

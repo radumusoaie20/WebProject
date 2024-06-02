@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 import { get, getDatabase, ref } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
 // Get the diseases from the URL
 let urlParams = new URLSearchParams(window.location.search);
 let symptoms = (urlParams.get('symptoms')).split(',');
-
-=======
-import { getDatabase, ref, get} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"
-// Get the diseases from the URL
-let urlParams = new URLSearchParams(window.location.search);
-let symptoms = (urlParams.get('symptoms')).split(',');
-const results = document.querySelector('#results');
->>>>>>> fa77d9a7043772f014a4013521f8038587eea16c
+let results = document.querySelector('#results');
 //on our database, we will have 
 //an entry with the name symptoms
 
@@ -21,31 +13,6 @@ symptoms
     ->"anxiety" : [LIST OF DISEASES],
       "anorexia" : [LIST OF DISEASES] 
 */
-<<<<<<< HEAD
-
-let sym = [];
-function fetchSymptomsDiseases(){
-    const db = getDatabase();
-    const dbRef = ref(db, '/symptoms');
-    get(dbRef).then((snapshot)=>{
-        const data = snapshot.val();
-        sym = data;
-    })
-}
-function waitForAssign(){
-    setTimeout(()=>{
-        if(sym === undefined){
-            waitForAssign();
-        }
-        return;
-    }, 1000);
-}
-function loadSymptoms(){
-    fetchSymptomsDiseases();
-    waitForAssign();
-}
-document.addEventListener('DOMContentLoaded', waitForAssign);
-=======
 document.addEventListener('DOMContentLoaded', function(){
         const db = getDatabase();
         const dbRef = ref(db, 'symptoms');
@@ -53,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
             let data = snapshot.val();
             let diseases = [];
             for(const symptom of symptoms){
+                console.log(data[symptom]);
                 for(const disease of data[symptom]){
                     if(diseases[disease] === undefined){
                         diseases[disease] = 1;
@@ -72,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 name.target = "_blank";
                 name.innerHTML = sorted_byValue[i][0];
                 const symptomChecked = document.createElement('p');
-                symptomChecked.innerHTML = `Symptoms : ${sorted_byValue[i][1]}`;
+                symptomChecked.innerHTML = `symptoms : ${sorted_byValue[i][1]}`;
                 symptomChecked.id = "sym";
                 div.appendChild(name);
                 div.appendChild(symptomChecked);
@@ -88,6 +56,6 @@ document.addEventListener('DOMContentLoaded', function(){
                     results.children.item(i).querySelector('#sym').innerHTML += `/${data.symptoms.length}`;
                 })
             }
-        });
+        });
 });
->>>>>>> fa77d9a7043772f014a4013521f8038587eea16c
+        
