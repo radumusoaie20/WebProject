@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+    padding-top: 1em;
+}
+#d p{
+    margin: 2em;
+    padding: 3em 0 3em 0;
+}
+footer{
+    position : fixed;
+    bottom : 0;
+    width : 100%;
+}
+
+a{
+    display: block;
+    margin-left: 2em;
+}

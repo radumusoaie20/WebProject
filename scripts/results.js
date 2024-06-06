@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
             let data = snapshot.val();
             let diseases = [];
             for(const symptom of symptoms){
-                console.log(data[symptom]);
+                if(data[symptom] === undefined) continue;
                 for(const disease of data[symptom]){
                     if(diseases[disease] === undefined){
                         diseases[disease] = 1;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 name.target = "_blank";
                 name.innerHTML = sorted_byValue[i][0];
                 const symptomChecked = document.createElement('p');
-                symptomChecked.innerHTML = `Symptoms : ${sorted_byValue[i][1]}`;
+                symptomChecked.innerHTML = `symptoms : ${sorted_byValue[i][1]}`;
                 symptomChecked.id = "sym";
                 div.appendChild(name);
                 div.appendChild(symptomChecked);
@@ -51,10 +51,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 const newRef = ref(db, `diseases/${name}`);
                 get(newRef).then((snapshot)=>{
                     const data = snapshot.val();
-                    console.log(data);
                     results.children.item(i).querySelector('a').href = `${data.link}`;
                     results.children.item(i).querySelector('#sym').innerHTML += `/${data.symptoms.length}`;
                 })
             }
-        });
+        });
 });

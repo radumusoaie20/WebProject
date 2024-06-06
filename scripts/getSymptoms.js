@@ -37,6 +37,7 @@ function retrieveSymptoms(place) {
             const section = document.createElement('section');
             section.innerHTML = `<h2>${category}</h2>`;
             const ul = document.createElement('ul');
+            
             for(const symptom of obj[category]){
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
